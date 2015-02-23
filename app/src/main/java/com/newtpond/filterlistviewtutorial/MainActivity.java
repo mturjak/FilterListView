@@ -41,7 +41,9 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.listview_main);
 
         list = (ListView) findViewById(R.id.listview);
-        adapter = new GravatarAdapter(MainActivity.this, "item");
+        list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+        adapter = new GravatarAdapter(MainActivity.this, "item_checkbox");
 
         mCurrentUser = ParseUser.getCurrentUser();
 

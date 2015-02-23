@@ -58,9 +58,13 @@ final class GravatarAdapter extends BaseAdapter {
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {
 
-    if (convertView == null) {
-        convertView = mLayoutInflater.inflate(R.layout.listview_item, null);
-    }
+      if (convertView == null) {
+          if(mStyle == "item") {
+              convertView = mLayoutInflater.inflate(R.layout.listview_item, null);
+          } else if(mStyle == "item_checkbox") {
+              convertView = mLayoutInflater.inflate(R.layout.user_list_item_checkbox, null);
+          }
+      }
 
     ParseObject profile = getItem(position);
 
